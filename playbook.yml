@@ -1,0 +1,14 @@
+---
+
+- hosts: router
+  become: yes
+
+  tasks:
+    - name: Override provided configuration with device configuration
+      junipernetworks.junos.junos_l3_interfaces:
+        config:
+          - name: ge-0/0/1
+            ipv4:
+            - address: 192.168.1.10/24
+        
+      state: overridden
