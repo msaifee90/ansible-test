@@ -1,0 +1,12 @@
+---
+- name: Get Device Facts
+  hosts: router
+  connection: local
+  gather_facts: no
+  tasks:
+      - name: Retrieve facts from devices running Junos OS
+        juniper.device.facts:
+         savedir: "{{ playbook_dir }}"
+      - name: Print version
+        debug:
+        var: junos.version

@@ -1,0 +1,9 @@
+---
+
+- hosts: router
+  become: yes
+
+  tasks:
+      - name: Gather legacy and resource facts
+        junipernetworks.junos.junos_facts::q
+
