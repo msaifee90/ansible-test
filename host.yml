@@ -5,11 +5,13 @@ datacenter:
     firewall:
       hosts:
         100.123.12.0:
-                ip_address: "10.10.10.1/24"       
+      vars:
+       ip_address: "10.10.10.1/24"       
     router:
       hosts:
         100.123.1.0:
-                ip_address: "1.1.1.1/24"
+      vars:          
+       ip_address: "10.10.10.2/24"
   vars:
     ansible_connection: netconf
     ansible_network_os: junos
