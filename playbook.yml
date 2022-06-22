@@ -1,6 +1,6 @@
 ---
 
-- hosts: router
+- hosts: datacenter
   become: yes
   gather_facts: no
 
@@ -8,7 +8,9 @@
     - name: Override provided configuration with device configuration
       junipernetworks.junos.junos_l3_interfaces:
            config:
-           - name: ge-0/0/1
+           - name: ge-0/0/0
              ipv4:
-             - address: 10.10.10.1/24
-           state: overridden 
+             - address: {{ip_address}}
+           state: replaced
+
+    
